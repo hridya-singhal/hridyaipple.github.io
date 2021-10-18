@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+
+    }
+    body{
+        overflow-x: hidden;
+    }
+    
+    #nav{
+        width: 100%;
+        height: 70px;
+        justify-content: space-between;
+display: flex;
+background-color: #f8f8f8;
+box-shadow:1px 2px 22px black;
+    }
+    #nav #left{
+        width: 35%;
+        height: 100%;
+    }
+    
+    #nav #left a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        position: relative;
+        top: 5px;
+        left: 10px;
+    }
+    #nav #right{
+        width: 65%;
+        height: 100%;
+        position: relative;
+    }
+    #nav #right ul{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+    }
+    #nav #right ul li{
+        text-transform: capitalize;
+        cursor: pointer;
+        color: cadetblue;
+        font-weight: 600;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 110px;
+position: relative;
+    }
+    #right ul li::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-top: 3px solid rgb(11, 74, 77);
+        border-left: 3px solid rgb(11, 74, 77);
+    }
+    #right ul li::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 20px;
+        width: 20px;
+        border-right: 3px solid rgb(11, 74, 77);
+        border-bottom: 3px solid rgb(11, 74, 77);
+transform:translate(-3px,-3px) ;
+transition: all 0.6s;
+    }
+    #right ul li:hover:before{
+        
+        transform:translate(-3px,-3px) ;
+
+        transition: all 0.6s;
+
+    }
+    #right ul li:hover:after{
+        
+        transform:translate(3px,3px) ;
+
+        transition: all 0.6s;
+
+    }
+    #baner{
+        height: 550px;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1600262606369-acb8a2cf69fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXBob25lJTIwMTElMjBwcm8lMjBtYXh8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+clip-path: polygon(0% 0%, 100% 0%,100% 80%, 50% 100%, 0% 80%);;
+    }
+    #baner h1{
+        font-size: 70px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #nav #right ul li:hover{
+        background-color: cadetblue;
+        color: white;
+        transition: all 0.7s;
+    }
+    #testimonial{
+        height: 700px;
+        width: 100%;
+    }
+    #testimonial #head1{
+        height: 200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 65px;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #review #r1:hover{
+transform:scale(1.2,1.2);
+transition: all 0.9s;
+    }
+    #review #r2:hover{
+transform:scale(1.2,1.2);
+transition: all 0.9s;
+    }
+    #review #r3:hover{
+transform:scale(1.2,1.2);
+transition: all 0.9s;
+    }
+    #review{
+        width: 100%;
+height: 600px;
+display: flex;
+align-items: center;
+justify-content: center;
+    }
+    #review #r1{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+
+    }
+    #review #r2{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+
+    }    #review #r3{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+    }
+    #review #r1 img{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        position: absolute;
+        top: -40px;
+        left: 105px;
+        border: 7px solid rgb(11, 74, 77);
+        
+
+    }
+    #review #r2 img{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        position: absolute;
+        top: -40px;
+        left: 105px;
+        border: 7px solid rgb(11, 74, 77);
+        
+
+    }    #review #r3 img{
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        position: absolute;
+        top: -40px;
+        left: 105px;
+        border: 7px solid rgb(11, 74, 77);
+
+    }
+    #review #r1 h2{
+        text-transform: capitalize;
+        position: absolute;
+        top: 70px;
+        left: 100px;
+        color: rgb(11, 74, 77);
+    }
+    #review #r2 h2{
+        text-transform: capitalize;
+        position: absolute;
+        top: 70px;
+        left: 100px;
+        color: rgb(11, 74, 77);
+
+    }#review #r3 h2{
+        text-transform: capitalize;
+        position: absolute;
+        top: 70px;
+        left: 50px;
+        color: rgb(11, 74, 77);
+
+    }
+    #review #r1 p{
+        text-align: center;
+        position: absolute;
+        top: 110px;
+    }
+    #review #r2 p{
+        text-align: center;
+        position: absolute;
+        top: 110px;
+    }    #review #r3 p{
+        text-align: center;
+        position: absolute;
+        top: 110px;
+    }
+    #review #r1 button{
+        height: 40px;
+        width: 110px;
+        border-radius: 50px;
+        position: absolute;
+        top: 290px;
+        left: 93px;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        background-color:cadetblue ;
+        color: white;
+        border: 1px solid rgb(11, 74, 77);
+    }
+    #review #r2 button{
+        height: 40px;
+        width: 110px;
+        border-radius: 50px;
+        position: absolute;
+        top: 290px;
+        left: 93px;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        background-color:cadetblue ;
+        color: white;
+        border: 1px solid rgb(11, 74, 77);
+
+    }#review #r3 button{
+        height: 40px;
+        width: 110px;
+        border-radius: 50px;
+        position: absolute;
+        top: 290px;
+        left: 93px;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        background-color:cadetblue ;
+        color: white;
+        border: 1px solid rgb(11, 74, 77);
+
+    }
+    #contact{
+        width: 100%;
+        height: 900px;
+    }
+    #contact #head2{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        font-size: 60px;
+        text-transform: capitalize;
+        color: cadetblue;
+        margin-top: 60px;
+    }
+    #contact #divs1{
+        width: 900px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #divs1 #img{
+        width: 400px;
+        height: 100%;
+        background-image: url("https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604343704000");
+        background-position: center;
+        background-size: cover;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+
+    }
+    #divs1 #form{
+        width: 500px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #divs1 #form input,textarea{
+        width: 90%;
+        height: 30px;
+        margin: 10px 0;
+        outline: none;
+        border: none;
+        border: 2px solid cadetblue;
+        color: rgb(11, 74, 77);
+        padding-left: 20px;
+    }
+    #divs1 #form button{
+        margin-top: 30px;
+        height: 40px;
+        width: 110px;
+        border-radius: 50px;
+        
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        background-color:cadetblue ;
+        color: white;
+        border: 1px solid rgb(11, 74, 77);
+    }
+
+    @media only screen and (max-width: 1080px) {
+        #baner h1{
+        font-size: 60px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+}
+@media only screen and (max-width: 925px) {
+    #baner h1{
+        font-size: 50px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color:cadetblue ;
+        
+    }
+    #contact #divs1{
+        width: 500px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #contact #head2{
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        font-size: 40px;
+        text-transform: capitalize;
+        color: cadetblue;
+        margin-top: 70px;
+    }
+    #review{
+        width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+    }
+
+    #review #r1{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin-top: 50px;
+
+    }
+    #review #r2{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin: 35px 0;
+
+    }    #review #r3{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+    }
+    #contact{
+        width: 100%;
+        height: 900px;
+        margin-top: 800px;
+    }
+    #contact #divs1{
+        width: 500px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #divs1 #img{
+        width: 400px;
+        height: 100%;
+        background-image: url("https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604343704000");
+        background-position: center;
+        background-size: cover;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+display: none;
+    }
+    #nav #right ul li{
+        display: none;
+    }
+    
+    #nav{
+        max-width: 100%;
+        height: 70px;
+        justify-content: space-between;
+display: flex;
+background-color: #f8f8f8;
+box-shadow:1px 2px 22px black;
+    }
+}
+@media only screen and (max-width: 785px) {
+        #baner h1{
+        font-size: 35px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #testimonial #head1{
+        height: 200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 45px;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #contact #divs1{
+        width: 500px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #contact #head2{
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        font-size: 40px;
+        text-transform: capitalize;
+        color: cadetblue;
+        margin-top: 70px;
+    }
+    #review{
+        width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+    }
+
+    #review #r1{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin-top: 50px;
+
+    }
+    #review #r2{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin: 35px 0;
+
+    }    #review #r3{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+    }
+    #contact{
+        width: 100%;
+        height: 900px;
+        margin-top: 800px;
+    }
+    #contact #divs1{
+        width: 500px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #divs1 #img{
+        width: 400px;
+        height: 100%;
+        background-image: url("https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604343704000");
+        background-position: center;
+        background-size: cover;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+display: none;
+    }
+    #nav #right ul li{
+        display: none;
+    }
+
+    #nav{
+        max-width: 100%;
+        height: 70px;
+        justify-content: space-between;
+display: flex;
+background-color: #f8f8f8;
+box-shadow:1px 2px 22px black;
+    }
+}
+@media only screen and (max-width: 550px) {
+        #baner h1{
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #contact #divs1{
+        width: 500px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #testimonial #head1{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        text-transform: capitalize;
+        color:cadetblue ;
+    }
+    #contact #head2{
+        width: 100%;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        font-size: 30px;
+        text-transform: capitalize;
+        color: cadetblue;
+        margin-top: 70px;
+    }
+
+    #contact{
+        width: 100%;
+        height: 900px;
+        margin-top: 600px;
+    }
+    #review{
+        width: auto;
+height: auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+    }
+    #review #r1{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin-top: 50px;
+
+    }
+    #review #r2{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+margin: 35px 0;
+
+    }    #review #r3{
+width: 300px;
+height: 350px;
+background-color:white;
+position: relative;
+margin: 0 20px;
+border: 5px solid rgb(11, 74, 77);
+transition: all 0.9s;
+cursor: pointer;
+border-radius: 10px;
+box-shadow:1px 2px 22px cadetblue;
+
+    }
+    #contact #divs1{
+        width: 400px;
+        height: 580px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 40px;
+        margin: auto;
+        border: 2px solid rgb(11, 74, 77);
+
+    }
+    #divs1 #img{
+        width: 400px;
+        height: 100%;
+        background-image: url("https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-green-select-2020?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604343704000");
+        background-position: center;
+        background-size: cover;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+display: none;
+    }
+    #nav #left{
+        width: 50%;
+        height: 100%;
+    }
+    #nav #left a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+        
+    }
+    #nav #right ul li{
+        display: none;
+    }
+
+    #nav{
+        max-width: 100%;
+        height: 70px;
+        justify-content: space-between;
+display: flex;
+background-color: #f8f8f8;
+box-shadow:1px 2px 22px black;
+    }
+    #baner{
+        height: 550px;
+        width: 100%;
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1600262606369-acb8a2cf69fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aXBob25lJTIwMTElMjBwcm8lMjBtYXh8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+clip-path: polygon(0% 0%, 100% 0%,100% 80%, 50% 100%, 0% 80%);;
+    }
+
+
+
+}
+
+#menus{
+    width: 100%;
+    height: 500px;
+    z-index: 10000;
+    position: relative;
+    left: 600px;
+    display: none;
+    background-color: cadetblue;
+transition: all 0.6s;
+}
+#menus  #right ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+    }
+    #menus #right ul li{
+        text-transform: capitalize;
+        cursor: pointer;
+        color: white;
+        font-weight: 600;
+        height: 50px;
+        display: flex;
+        margin: 25px 0;
+        align-items: center;
+        justify-content: center;
+        width: 110px;
+position: relative;
+    }
+    #right i{
+    
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+</style>
+<body>
+<div id="nav">
+    <div id="left">
+<a href="#"><i class="fa fa-apple" style="font-size:60px;color: rgb(11, 74, 77);margin: 0 10px;"></i>Design By Ipple</a>
+    </div>
+    <div id="right">
+        
+<ul>
+    <li>home</li>
+    <li>design</li>
+    <li>shop</li>
+    <li>help us</li>
+    <li>contact us</li>
+    
+</ul>
+
+    </div>
+
+</div>
+<div id="menus">
+    <div id="right">
+        <ul>
+            <li style="margin-top: 30px;">home</li>
+            <li>design</li>
+            <li>shop</li>
+            <li>help us</li>
+            <li>contact us</li>
+        </ul>
+            </div>
+        
+</div>
+<div id="baner">
+    <h1>change the world with Ipple</h1>
+</div>
+<div id="testimonial">
+    <div id="head1">
+        <h1>testimonial</h1>
+    </div>
+    <hr style="width: 30%;margin: auto;height: 5PX;background-color: rgb(11, 74, 77);">
+
+    <div id="review">
+        <div id="r1">
+            <img src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f4ebe0c87612dab4f12a597%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D292%26cropX2%3D3684%26cropY1%3D592%26cropY2%3D3987" alt="">
+<h2>bill gates</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse quod, maxime eveniet amet voluptas magni doloribus veniam, necessitatibus cupiditate, sit soluta. Accusamus in suscipit unde voluptas perferendis eveniet minus atque voluptate. Corrupti expedita aliquam aperiam. </p>
+<button>read more</button>
+        </div>
+        <div id="r2">
+            <img src="https://i.guim.co.uk/img/media/6fe9280dc6cf8c95543a22f8eea16baa15f754f2/0_44_2200_1320/master/2200.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=4eee5edefef91840a6eaf441c64b613e" alt="">
+<h2>jeff bezos</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse quod, maxime eveniet amet voluptas magni doloribus veniam, necessitatibus cupiditate, sit soluta. Accusamus in suscipit unde voluptas perferendis eveniet minus atque voluptate. Corrupti expedita aliquam aperiam. </p>
+<button>read more</button>
+        </div>
+        <div id="r3">
+            <img src="data:image/jpeg;base64,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" alt="">
+<h2>mark zuckerberg</h2>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse quod, maxime eveniet amet voluptas magni doloribus veniam, necessitatibus cupiditate, sit soluta. Accusamus in suscipit unde voluptas perferendis eveniet minus atque voluptate. Corrupti expedita aliquam aperiam. </p>
+<button>read more</button>
+        </div>
+
+    </div>
+</div>
+<div id="contact">
+    <div id="head2">
+        <h1>contact us</h1>
+    </div>
+    <hr style="width: 30%;background-color: rgb(11, 74, 77);margin: auto;height: 6px;">\
+<div id="divs1">
+    <div id="img">
+
+    </div>
+    <div id="form">
+<input type="text" placeholder="Full Name">
+<input type="text" name="" id="" placeholder="Phone Number">
+<input type="text" placeholder="Email Address">
+<textarea name="" id="" cols="30" rows="10" placeholder="Write Your Query" style="height: 100px;"></textarea>
+<button>Submit</button>
+</div>
+</div>
+</div>
+<script>
+function start() {
+    document.getElementById("menus").style.left = "0";
+    document.getElementById("menus").style.display = "block";
+    document.getElementById("close").style.display = "block";
+    document.getElementById("start").style.display = "none";
+
+
+}
+function stop() {
+    document.getElementById("menus").style.left = "600px";
+    document.getElementById("menus").style.display = "none";
+    document.getElementById("close").style.display = "none";
+    document.getElementById("start").style.display = "block";
+
+
+}
+</script>
+</body>
+</html>
